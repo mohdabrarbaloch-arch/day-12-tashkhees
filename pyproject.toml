@@ -1,0 +1,43 @@
+[project]
+name = "tashkhees"
+version = "1.0.0"
+description = "AI-assisted chest radiograph measurement and reporting platform"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "pydantic[email]==2.10.4",
+    "sqlalchemy==2.0.36",
+    "python-multipart==0.0.20",
+    "PyJWT==2.10.1",
+    "bcrypt==4.2.1",
+    "pillow==10.2.0",
+    "numpy==2.4.6",
+    "psycopg2-binary==2.9.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "httpx==0.28.1",
+    "ruff==0.8.4",
+    "black==24.10.0",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "C4", "SIM"]
+ignore = ["B008", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]
+
+[tool.black]
+line-length = 110
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
