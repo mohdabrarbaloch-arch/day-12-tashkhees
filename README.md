@@ -52,13 +52,13 @@ without touching the API, the database, or the UI.
 |---|---|
 | ![Login](screenshots/01-login.png) | ![Dashboard](screenshots/02-dashboard.png) |
 
-| Analysis — measurements | Segmentation overlay |
+| Study detail | Segmentation overlay |
 |---|---|
-| ![Analysis](screenshots/04-analysis.png) | ![Overlay](screenshots/05-overlay.png) |
+| ![Study detail](screenshots/03-study-detail.png) | ![Segmentation](screenshots/04-segmentation.png) |
 
 | Structured report | Mobile |
 |---|---|
-| ![Report](screenshots/06-report.png) | ![Mobile](screenshots/07-mobile.png) |
+| ![Report](screenshots/05-report.png) | ![Mobile](screenshots/06-mobile.png) |
 
 ---
 
