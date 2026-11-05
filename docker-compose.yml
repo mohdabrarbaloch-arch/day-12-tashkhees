@@ -1,0 +1,46 @@
+# Tashkhees — local stack: app + PostgreSQL.
+#
+#   docker compose up --build
+#   open http://localhost:8012
+#
+# The app falls back to SQLite if you run it without this file, so Postgres is
+# only needed when you want the production-shaped database.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: tashkhees
+      POSTGRES_PASSWORD: tashkhees
+      POSTGRES_DB: tashkhees
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tashkhees -d tashkhees"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT: production
+      DEBUG: "false"
+      # Override this in any real deployment.
+      SECRET_KEY: change-me-to-a-32-plus-character-secret-value
+      DATABASE_URL: postgresql+psycopg2://tashkhees:tashkhees@db:5432/tashkhees
+      UPLOAD_DIR: /app/uploads
+      CORS_ORIGINS: http://localhost:8012
+    ports:
+      - "8012:8012"
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  uploads:
