@@ -47,7 +47,7 @@ uvicorn app.main:app --reload --port 8012
 ```
 
 - App: <http://127.0.0.1:8012>
-- API docs: <http://127.0.0.1:8012/docs>
+- API docs: <http://127.0.0.1:8012/api/docs>
 - Health: <http://127.0.0.1:8012/api/health>
 
 Sign in with `demo@tashkhees.pk` / `demo12345`.

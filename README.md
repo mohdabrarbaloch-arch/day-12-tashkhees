@@ -54,11 +54,11 @@ without touching the API, the database, or the UI.
 
 | Analysis — measurements | Segmentation overlay |
 |---|---|
-| ![Analysis](screenshots/03-study-detail.png) | ![Overlay](screenshots/04-segmentation.png) |
+| ![Analysis](screenshots/04-analysis.png) | ![Overlay](screenshots/05-overlay.png) |
 
 | Structured report | Mobile |
 |---|---|
-| ![Report](screenshots/05-report.png) | ![Mobile](screenshots/06-mobile.png) |
+| ![Report](screenshots/06-report.png) | ![Mobile](screenshots/07-mobile.png) |
 
 ---
 
@@ -88,7 +88,7 @@ uvicorn app.main:app --reload --port 8012
 
 Open <http://127.0.0.1:8012> and sign in with `demo@tashkhees.pk` / `demo12345`.
 
-API docs are at <http://127.0.0.1:8012/docs>.
+API docs are at <http://127.0.0.1:8012/api/docs>.
 
 ---
 
@@ -136,7 +136,7 @@ docker run -p 8012:8012 --env-file .env tashkhees
 | Exposure quality | mean intensity + dynamic range | 0.25 – 0.75 | outside |
 
 The full method — including how the lung fields are segmented and how confidence is derived —
-is in [`ARCHITECTURE.md`](ARCHITECTURE.md) and the docstrings in `app/engine/imaging.py`.
+is in the docstrings in `app/engine/imaging.py` and `app/engine/analyze.py`.
 
 ---
 
